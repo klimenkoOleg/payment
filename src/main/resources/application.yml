@@ -1,0 +1,69 @@
+server.servlet.context-path: /payment
+server.port: 8081
+logging:
+  level:
+    org:
+      apache:
+        http:
+          wire: debug
+      springframework:
+        cloud:
+          netflix: trace
+    org.springframework.security: DEBUG
+
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+server.tomcat.accesslog.directory: /dev
+server.tomcat.accesslog.prefix: stdout
+server.tomcat.accesslog.buffered: false
+
+# Don't use empty double quotes, see below
+#server.tomcat.accesslog.suffix: asd
+#server.tomcat.accesslog.file-date-format:
+server.tomcat.accesslog.suffix: ""
+server.tomcat.accesslog.file-date-format: ""
+
+spring:
+#  datasource:
+#    url: ${DATABASE_URI}?currentSchema=payment
+#    driverClassName: org.postgresql.Driver
+#    username: ${DATABASE_USER}
+#    password: ${DATABASE_PASSWORD}
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+#        hbm2ddl.auto: validate
+#        show_sql: true
+#        format_sql: true
+#        temp.use_jdbc_metadata_defaults: false
+#    open-in-view: false
+#  flyway:
+#    enabled: true
+#    schemas: payment
+#    url: ${DATABASE_URI}
+#    user: ${DATABASE_USER}
+#    password: ${DATABASE_PASSWORD}
+
+
+    #    password: qwe1234rty
+    #    schemas: chrg2
+    #    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=chrg2
+    #    url: jdbc:postgresql://193.48.96.91:5432/rdbo?currentSchema=chrg
+    #    user: postgres
+    #    user: rdbo_chrg_cd
+  #    password: postgres
+  #    password: qwe1234rty
+#server.tomcat.basedir=/var/tomcat
+#server.tomcat.accesslog.buffered: true
+#server.tomcat.accesslog.directory: access/log
+#server.tomcat.accesslog.enabled: true
+#server.tomcat.accesslog.pattern: "%h %{X-Forwarded-For}i %l %u %t %r %s %b"
+#server.tomcat.accesslog.prefix: tomcat_access_log
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: 123

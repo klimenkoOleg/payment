@@ -1,0 +1,35 @@
+
+
+
+curl -X POST \
+http://localhost:8081/spring-security-oauth-server/oauth/token \
+-H 'Authorization: Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'grant_type=password&password=123&username=john'
+
+
+curl -X POST \
+  http://localhost:8080/oauth/token \
+  -H 'Authorization: Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'grant_type=password&password=123&username=john'
+
+
+
+
+curl -X POST \
+  http://localhost:8081/user/register \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTA0MTkyNTEsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiQURNSU4iXSwianRpIjoiYWRiYTIxODktMTQ4My00NzZhLWEwZDgtNzA4OGMyNjQ2YTIyIiwiY2xpZW50X2lkIjoiZm9vQ2xpZW50SWRQYXNzd29yZCIsInNjb3BlIjpbImZvbyIsInJlYWQiLCJ3cml0ZSJdfQ.xZj3xjg7kwCCyScRw9fmvJCNZbuuOFUtmTcuxHQSHmA' \
+  -H 'Cache-Control: no-cache' \
+  {"username": "newUser2", "password": "newPassword"}
+
+
+curl -X GET \
+  http:/localhost:8081/spring-security-oauth-resource/users/extra \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Encoding: gzip, deflate' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV...' \
+  -H 'Cache-Control: no-cache' \
