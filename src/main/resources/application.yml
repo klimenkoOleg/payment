@@ -67,3 +67,17 @@ security:
     resource:
       jwt:
         key-value: 123
+kafka:
+  server: myapp-kafka:9092
+  producer:
+    id: paymentProducer
+  topic: payment2
+
+external:
+  paymentGateUri: http://myapp-hello-chart-processing:8083/processing/payment/create
+
+#Metrics related configurations
+management.endpoint.metrics.enabled: true
+management.endpoints.web.exposure.include: "*"
+management.endpoint.prometheus.enabled: true
+management.metrics.export.prometheus.enabled: true

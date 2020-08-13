@@ -1,7 +1,6 @@
 package com.oklimenko.payment.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.oklimenko.payment.dto.ErrorResult;
 import com.oklimenko.payment.dto.NewPaymentDto;
 import com.oklimenko.payment.dto.NewPaymentSystemDto;
 import com.oklimenko.payment.dto.SavedPaymentDto;
@@ -15,7 +14,6 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
@@ -31,7 +29,7 @@ public class PaymentServiceImpl implements PaymentService {
     @Value("${kafka.topic}")
     private String kafkaTopic;
 
-        private final KafkaTemplate<Long, NewPaymentSystemDto> kafkaTemplate;
+    private final KafkaTemplate<Long, NewPaymentSystemDto> kafkaTemplate;
 
     private final PaymentMapper paymentMapper;
 

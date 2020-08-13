@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 
 @Component
 public class RestTemplateConfig {
-
     /**
      * This specialized version of the Spring RestTemplate supports
      * forwarding the authorization token to the target service for
@@ -19,7 +18,7 @@ public class RestTemplateConfig {
      */
     @Bean
     @RequestScope
-    public RestTemplate keycloakRestTemplate(HttpServletRequest inReq) {
+    public RestTemplate authPropagateRestTemplate(HttpServletRequest inReq) {
         // retrieve the auth header from incoming request
         final String authHeader =
                 inReq.getHeader(HttpHeaders.AUTHORIZATION);
